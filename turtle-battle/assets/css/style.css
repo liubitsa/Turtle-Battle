@@ -1,0 +1,65 @@
+@CHARSET "UTF-8";
+
+body {
+	background: url("../images/underwater.jpg") no-repeat center center fixed;
+	background-size: 100% 100%;
+	font-weight: bold;
+}
+
+#turtle {
+	position: absolute;
+	background: url("../images/turtle.png") no-repeat center center;
+	background-size: 100% 100%;
+	width: 350px;
+	height: 350px;
+	bottom: 40px;
+	left: 600px;
+}
+
+#money {
+	position: absolute;
+	background: url"assets/images/s.png" no-repeat center center;
+	background-size: 100% 100%;
+	width: 350px;
+	height: 350px;
+	bottom: 40px;
+	left: 600px;
+}
+
+#diamond {
+	position: absolute;
+	background: url("../images/diamand.png") no-repeat center center;
+	background-size: 100% 100%;
+	width: 60px;
+	height: 40px;
+	bottom: 260px;
+	left: 1300px;
+}
+
+#papirus {
+	position: absolute;
+	background: url("../images/points.png") no-repeat center center;
+	background-size: 100% 100%;
+	margin-top:10px;
+	margin-left:50px;
+	width: 250px;
+	height: 200px;
+}
+
+#text {
+	margin-top: 90px;
+	margin-left: 70px;
+}
+
+p {
+	font-weight: bolder;
+	color: black;
+	padding: 0.0em;
+	font-style: italic;
+}
+
+span {
+	color: black;
+	margin-left: 0.2em;
+	font-style: normal;
+}

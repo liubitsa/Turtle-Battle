@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Turtle Battle</title>
+<link rel="icon" href="assets/images/favicon.ico" sizes="16x16">
+<link rel="shortcut icon" href="assets/images/favicon.ico" type="image/x-icon">
+<link rel="icon" href="assets/images/favicon.ico" type="image/x-icon">
+<link href='https://fonts.googleapis.com/css?family=Montez' rel='stylesheet' type='text/css'>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<style>
+body {
+	background: url("assets/images/underwater.jpg") no-repeat center center fixed;
+	background-size: 100% 100%;
+  font-family: 'Montez', cursive;
+	font-weight: bold;
+}
+
+ #dory {
+   margin-top: 0px;
+   margin-left: -30px;
+   width:200px;
+   height:200px;
+   float:left;
+ }
+
+  #turtle2 {
+    margin-top: -200px;
+    margin-left: 400px;
+    width:160px;
+    height:160px;
+    float:left;
+  }
+
+
+
+button {
+	font-family: 'Montez', cursive;
+  color:#ed1e79;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  border:3px solid #ed1e79;
+  border-radius: 20px;
+  background-color:white;
+  font-weight:bold;
+  font-size: 40px;
+  margin-left: 600px;
+  margin-top: 0px;
+  float:left;
+
+}
+
+button:hover {
+  color:white;
+  background-color:#ed1e79;
+  border:3px solid white;
+}
+
+p {
+	font-weight: bolder;
+	font-size: 70px;
+	color: #ed1e79;
+	margin-left: 600px;
+	}
+	#papirus {
+		width:200px;
+		height:250px;
+		margin-left: -400px;
+		margin-bottom: -350px;
+	}
+</style>
+</head>
+<body>
+
+  <audio autoplay loop>
+			<source src="bubbling_water.mp3" type="audio/mpeg">
+	</audio>
+<p>Turtle Battle</p>
+<div id="Game">
+<a href="index.html"><button>Start New Game</button></a>
+</div>
+
+  <div>
+    <img src="assets/images/dory.png" id="dory">
+		<img src="assets/images/bu.png" id="turtle2">
+		<img src="assets/images/s.png" id="papirus">
+  </div>
+
+</body>
+</html>

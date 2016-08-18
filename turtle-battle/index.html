@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Turtle Battle</title><link rel="shortcut icon" href="assets/images/favicon.ico" type="image/x-icon">
+<link rel="icon" href="assets/images/favicon.ico" type="image/x-icon">
+<link rel="stylesheet" type="text/css" href="assets/css/style.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<link href='https://fonts.googleapis.com/css?family=Montez' rel='stylesheet' type='text/css'>
+
+<script type="text/javascript">
+$(function() {
+	var turtle = $('#turtle');
+	function run(h, w, u) {
+		turtle.animate({
+			height: h,
+			width: w
+		}, 200, function() {
+		turtle.css({
+				'background': u,
+				'background-size': '100% 100%'
+			});
+		})
+	}
+
+/*	var money = $('#money')
+	function over(h, w, u) {
+		money.animate({
+			height: h,
+			width: w
+		}, 100, function() {
+		money.css({
+				'background': u,
+				'background-size': '100% 100%'
+			});
+		})
+	}
+*/
+	var down = function(e){
+		$('html').off('keydown', down);
+		if (e.keyCode == 37) {
+			run('200px', '200px', 'url("assets/images/turtlesee.png") no-repeat center center');
+		}
+
+		if (e.keyCode == 39) {
+			run('80px', '250px', 'url("assets/images/turtlesleep.png") no-repeat center center');
+		}
+	}
+
+	$('html').on('keydown', down);
+
+	$('html').on('keyup', function(e){
+		$('html').on('keydown', down);
+
+		if (e.keyCode == 37) {
+			run('300px', '300px', 'url("assets/images/turtle.png") no-repeat center center');
+		}
+
+		if (e.keyCode == 39) {
+			run('300px', '300px', 'url("assets/images/turtle.png") no-repeat center center');
+		}
+	})
+
+	var start = ['260px', '200px', '110px'];
+	var life = parseInt($('#life').text());
+	var stones = parseInt($('#stones').text());
+	var minus = false;
+	var diamond = $("#diamond");
+
+	function runTurtle() {
+		var i = Math.floor(Math.random() * 3);
+		if (stones > 0 && life > 0) {
+			diamond.css('display', 'block');
+			diamond.animate({
+				'left': '100px'
+			}, 4000, function() {
+				diamond.css({
+					'left': '1300px',
+					'bottom': start[i],
+					'display': 'none'
+				})
+				stones -= 1;
+				$('#stones').text(stones);
+				minus = false;
+				runTurtle();
+			})
+
+		}
+	}
+	runTurtle();
+
+
+	function gameOver() {
+		run('200px', '450px', 'url("assets/images/go.png") no-repeat center center');
+
+	}
+
+	function gameWin() {
+		run('300px', '350px', 'url("assets/images/s.png") no-repeat center center');
+	}
+
+	function loop(){
+		if ((parseInt(diamond.css('left')) > 550 && parseInt(diamond.css('left')) < 600 &&
+			diamond.css('bottom') == '260px' && parseInt(turtle.css('height')) > 200 &&
+			minus == false && life > 0) ||
+			(parseInt(diamond.css('left')) > 550 && parseInt(diamond.css('left')) < 600 &&
+			diamond.css('bottom') == '200px' && parseInt(turtle.css('height')) > 150 &&
+			minus == false && life > 0) ||
+			(parseInt(diamond.css('left')) > 550 && parseInt(diamond.css('left')) < 600 &&
+			diamond.css('bottom') == '130px' && parseInt(turtle.css('height')) > 100 &&
+			minus == false && life > 0)){
+			minus = true;
+			life -= 1;
+			$('#life').text(life);
+			$('#stars').css('display', 'block');
+		}
+		if (parseInt(diamond.css('left')) > 400 && parseInt(diamond.css('left')) < 420
+			&& $('#stars').css('display') == 'block') {
+			$('#stars').css('display', 'none');
+		}
+
+		if (life == 0) {
+			gameOver();
+		}
+		if (stones == 0) {
+			gameWin();
+		}
+
+		requestAnimationFrame(loop);
+	}
+	requestAnimationFrame(loop);
+})
+
+</script>
+</head>
+<body>
+	<audio autoplay loop>
+			<source src="bubbling_water.mp3" type="audio/mpeg">
+	</audio>
+
+	<div id="turtle"></div>
+		<div id="money"></div>
+
+	<div id="diamond"></div>
+
+	<div id="papirus">
+		<div id="text">
+			<p>Lifes: <span id="life">3</span></p>
+			<p>Stones: <span id="stones">20</span></p>
+		</div>
+	</div>
+
+	</div>
+
+</body>
+</html>
